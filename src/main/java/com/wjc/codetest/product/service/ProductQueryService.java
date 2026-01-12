@@ -10,6 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * 상품 단건 조회
  *
@@ -61,5 +63,10 @@ public class ProductQueryService {
         }
 
         return productRepository.findAllByCategory(category, pageRequest);
+    }
+
+    @Transactional(readOnly = true)
+    public List<String> getUniqueCategories() {
+        return productRepository.findDistinctCategories();
     }
 }

@@ -129,7 +129,7 @@ public class ProductController {
         return ResponseEntity.ok(
                 ApiResponse.success(
                         "상품 카테고리 조회 성공",
-                        productService.getUniqueCategories()
+                        productQueryService.getUniqueCategories()
                 )
         );
     }

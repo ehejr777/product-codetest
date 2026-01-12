@@ -76,10 +76,4 @@ public class ProductService {
         Product product = productQueryService.getById(productId);
         productRepository.delete(product);
     }
-
-
-    @Transactional(readOnly = true)
-    public List<String> getUniqueCategories() {
-        return productRepository.findDistinctCategories();
-    }
 }
